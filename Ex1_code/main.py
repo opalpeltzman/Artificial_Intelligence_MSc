@@ -8,6 +8,7 @@ We just parse input and call methods from other modules.
 #simply import your modules and call the appropriate functions
 
 from internal_functions import random_search_problems
+from internal_functions import ucs
 
 
 def huristic_function(lat1, lon1, lat2, lon2):
@@ -16,8 +17,12 @@ def huristic_function(lat1, lon1, lat2, lon2):
 
 
 def find_ucs_rout(source, target):
+    """
+     @param source: int type that represents node index
+     @param target: int type that represents node index
+    """
     'call function to find path, and return list of indices'
-    raise NotImplementedError
+    ucs.ucs(start=source, target=target)
 
 
 def find_astar_route(source, target):
@@ -45,4 +50,6 @@ def dispatch(argv):
 if __name__ == '__main__':
     from sys import argv
     # dispatch(argv)
-    random_search_problems.create_random_search_problems()
+
+    # random_search_problems.create_random_search_problems()
+    find_ucs_rout(source=796317, target=796319)
