@@ -7,6 +7,9 @@ We just parse input and call methods from other modules.
 #do NOT import ways. This should be done from other files
 #simply import your modules and call the appropriate functions
 
+from internal_functions import random_search_problems
+
+
 def huristic_function(lat1, lon1, lat2, lon2):
 
     raise NotImplementedError
@@ -41,4 +44,5 @@ def dispatch(argv):
 
 if __name__ == '__main__':
     from sys import argv
-    dispatch(argv)
+    # dispatch(argv)
+    random_search_problems.create_random_search_problems()

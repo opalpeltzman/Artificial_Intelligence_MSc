@@ -1,4 +1,5 @@
 from Ex1_code.ways.graph import load_map_from_csv
+import pandas as pd
 import numpy as np
 
 
@@ -9,19 +10,21 @@ def create_random_search_problems():
     search_problem_lengths = np.random.randint(low=5, high=19, size=100)
 
     roads = load_map_from_csv()
-    search_problems_array = np.array([])
-    route = []
+    search_problems_array = []
 
     for index, start_junction in enumerate(start_junctions):
-        route.append(start_junction)
+
+        route = [start_junction]
         current_junction = start_junction
 
         while len(route) < search_problem_lengths[index]:
-            print(len(roads[current_junction].links))
-            random_link = np.random.randint(low=0, high=len(roads[current_junction].links) + 1, size=1)
-            print(roads[current_junction].links[random_link[0]])
+
+            random_link = np.random.randint(low=0, high=len(roads[current_junction].links), size=1)
             current_junction = (roads[current_junction].links[random_link[0]]).target
             route.append(current_junction)
 
-        search_problems_array = np.append([start_junction, current_junction])
+        search_problems_array.append([start_junction, current_junction])
+
+    arr = np.asarray(search_problems_array)
+    pd.DataFrame(arr).to_csv('problems.csv', index=False, header=False)
 
