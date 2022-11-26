@@ -1,3 +1,8 @@
+"""
+Opal Peltzman
+208521385
+"""
+
 from ways import load_map_from_csv
 from ways.graph import Link
 from ways.info import SPEED_RANGES
@@ -64,7 +69,10 @@ def astar(start, target, roads=None):
                 path.insert(0, tmp.index)
                 tmp = closed_dict[tmp.parent_node]
             path.insert(0, start)
-            h_time = closed_dict[start].total_cost
+            if not closed_dict:
+                h_time = selected_node_object.total_cost
+            else:
+                h_time = closed_dict[start].total_cost
             # seconds
             end_time = time.time()
             print(f'{path} - {end_time - start_time}')

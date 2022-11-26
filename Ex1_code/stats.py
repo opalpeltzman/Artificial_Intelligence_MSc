@@ -1,6 +1,9 @@
 '''
-This file should be runnable to print map_statistics using 
+This file should be runnable to print map_statistics using
 $ python stats.py
+
+Opal Peltzman
+208521385
 '''
 
 from collections import namedtuple, Counter

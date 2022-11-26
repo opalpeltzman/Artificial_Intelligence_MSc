@@ -2,6 +2,10 @@
 Parse input and run appropriate code.
 Don't use this file for the actual work; only minimal code should be here.
 We just parse input and call methods from other modules.
+
+Opal Peltzman
+208521385
+
 '''
 
 #do NOT import ways. This should be done from other files
@@ -9,6 +13,7 @@ We just parse input and call methods from other modules.
 
 from astar import huristic, astar
 from ucs import ucs
+from save_results import save_results
 
 
 def huristic_function(lat1, lon1, lat2, lon2):
@@ -51,7 +56,7 @@ if __name__ == '__main__':
     # dispatch(argv)
 
     # random_search_problems.create_random_search_problems()
-    find_ucs_rout(source=52830, target=52834)
-    # save_results.save_results(algorithm='ucs')
-    find_astar_route(source=52830, target=52834)
-    # save_results.save_results(algorithm='astar')
+    # find_ucs_rout(source=52830, target=52834)
+    save_results(algorithm='ucs')
+    # find_astar_route(source=52830, target=52834)
+    # save_results(algorithm='astar')
