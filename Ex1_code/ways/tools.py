@@ -16,6 +16,7 @@ def dhash(*data):
     return abs(zlib.adler32(bytes(str(data),'UTF-8'))*100) * SEED % 0xffffffff
 ## The move from python 2 to 3 caused some problems.
 
+
 def dbopen(fname, *args, **kwargs):
     'make sure we are in the correct directory'
     if not fname.startswith(DB_DIRNAME):

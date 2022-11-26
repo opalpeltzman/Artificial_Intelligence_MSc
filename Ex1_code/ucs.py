@@ -1,12 +1,14 @@
-from Ex1_code.ways.graph import load_map_from_csv
-from Ex1_code.ways.graph import Link
-from Ex1_code.ways.info import SPEED_RANGES
+from ways import load_map_from_csv
+from ways.graph import Link
+from ways.info import SPEED_RANGES
+import time
 
 
 class Node:
     def __init__(self, index=None, parent_node=None, cost=None):
         self.index = index
         self.parent_node = parent_node
+        # the g cost
         self.cost = cost
 
     def update_parent_node(self, new_parent_node):
@@ -21,22 +23,26 @@ def path_cost(s_node: Node, a_node: Link) -> int:
     return s_node.cost + cost
 
 
-def ucs(start, target):
+# running time- 240 seconds on average
+def ucs(start, target, roads=None):
     """
     opened_dict - holds all nodes that were found but not expanded yet
     sorted_opened_dict - opened_list sorted by cost ascending order
     closed_dict - to track nodes we visit already
     """
     path = []
-    total_time = None
+    if not roads:
+        roads = load_map_from_csv()
 
-    roads = load_map_from_csv()
+    # seconds
+    start_time = time.time()
     closed_dict = {}
     opened_dict = {start: Node(index=start, parent_node=None, cost=0)}
     sorted_opened_dict = {k: v for k, v in sorted(opened_dict.items(), key=lambda item: item[1].cost)}
 
     while sorted_opened_dict:
         #  remove and selecting the node with the minimum cost
+
         selected_node_key = list(sorted_opened_dict.keys())[0]
         selected_node_object = sorted_opened_dict[selected_node_key]
         del sorted_opened_dict[selected_node_key]
@@ -49,6 +55,10 @@ def ucs(start, target):
                 path.insert(0, tmp.index)
                 tmp = closed_dict[tmp.parent_node]
             path.insert(0, start)
+            # seconds
+            end_time = time.time()
+            print(f'{path} - {end_time - start_time}')
+            return path, total_time, end_time - start_time
 
         # closed_list.append(selected_node_object.index)
         closed_dict.update({selected_node_object.index: selected_node_object})
@@ -67,8 +77,4 @@ def ucs(start, target):
                 elif link.target in sorted_opened_dict and cost < sorted_opened_dict[link.target].cost:
                     sorted_opened_dict[link.target].update_parent_node(new_parent_node=link.source)
                     sorted_opened_dict[link.target].update_cost(new_cost=cost)
-
-    print(path)
-    print(total_time)
-    return path, total_time
 

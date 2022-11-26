@@ -7,13 +7,12 @@ We just parse input and call methods from other modules.
 #do NOT import ways. This should be done from other files
 #simply import your modules and call the appropriate functions
 
-from internal_functions import random_search_problems
-from internal_functions import ucs
+from astar import huristic, astar
+from ucs import ucs
 
 
 def huristic_function(lat1, lon1, lat2, lon2):
-
-    raise NotImplementedError
+    huristic(lat1=lat1, lon1=lon1, lat2=lat2, lon2=lon2)
 
 
 def find_ucs_rout(source, target):
@@ -22,12 +21,12 @@ def find_ucs_rout(source, target):
      @param target: int type that represents node index
     """
     'call function to find path, and return list of indices'
-    ucs.ucs(start=source, target=target)
+    ucs(start=source, target=target)
 
 
 def find_astar_route(source, target):
     'call function to find path, and return list of indices'
-    raise NotImplementedError
+    astar(start=source, target=target)
 
 
 def find_idastar_route(source, target):
@@ -52,4 +51,7 @@ if __name__ == '__main__':
     # dispatch(argv)
 
     # random_search_problems.create_random_search_problems()
-    find_ucs_rout(source=796317, target=796319)
+    find_ucs_rout(source=52830, target=52834)
+    # save_results.save_results(algorithm='ucs')
+    find_astar_route(source=52830, target=52834)
+    # save_results.save_results(algorithm='astar')
