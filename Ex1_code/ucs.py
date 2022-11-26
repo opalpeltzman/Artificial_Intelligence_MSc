@@ -58,6 +58,7 @@ def ucs(start, target, roads=None):
             # seconds
             end_time = time.time()
             print(f'{path} - {end_time - start_time}')
+            # print(path)
             return path, total_time, end_time - start_time
 
         # closed_list.append(selected_node_object.index)
