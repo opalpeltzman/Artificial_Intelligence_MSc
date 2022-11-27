@@ -14,6 +14,8 @@ Opal Peltzman
 from astar import huristic, astar
 from ucs import ucs
 from save_results import save_results
+from random_search_problems import create_random_search_problems
+from idastar import idastar
 
 
 def huristic_function(lat1, lon1, lat2, lon2):
@@ -36,7 +38,7 @@ def find_astar_route(source, target):
 
 def find_idastar_route(source, target):
     'call function to find path, and return list of indices'
-    raise NotImplementedError
+    idastar(start=source, target=target)
     
 
 def dispatch(argv):
@@ -55,8 +57,51 @@ if __name__ == '__main__':
     from sys import argv
     # dispatch(argv)
 
-    # random_search_problems.create_random_search_problems()
+    """
+    create 100 random search problems. 
+    uncomment to run
+    """
+    # create_random_search_problems()
+
+    """
+        run UCS algorithm on a specific search problem.
+        problems available at 'problems.txt'
+        uncomment to run
+    """
     # find_ucs_rout(source=52830, target=52834)
-    save_results(algorithm='ucs')
+
+    """
+        run UCS algorithm on all 100 problems from 'problems.txt'
+        and save results to results/UCSRuns.txt.
+        uncomment to run
+    """
+    # save_results(algorithm='ucs')
+
+    """
+        run astar algorithm on a specific search problem.
+        problems available at 'problems.txt'
+        uncomment to run
+    """
     # find_astar_route(source=52830, target=52834)
+
+    """
+        run A* algorithm on all 100 problems from 'problems.txt'
+        and save results to results/AStarRuns.txt. show scatter plot representing
+        huristic time VS real time.
+        uncomment to run
+    """
     # save_results(algorithm='astar')
+
+    """
+        run idastar algorithm on a specific search problem.
+        problems available at 'problems.txt'
+        uncomment to run
+    """
+    # find_idastar_route(source=514991, target=514964)
+
+    """
+        run idastar algorithm on 10 problems from 'problems.txt'
+        and create map using draw.plot_path
+        uncomment to run
+    """
+    # save_results(algorithm='idastar')

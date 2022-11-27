@@ -1,7 +1,10 @@
+"""
+Opal Peltzman
+208521385
+"""
+
 '''Constants - details about the map.
 accessible using "import ways.info'''
-
-
 
 
 ROAD_TYPES = ('motorway', 'motorway_link',

@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Opal Peltzman
+208521385
+"""
 
 import time
 import zlib

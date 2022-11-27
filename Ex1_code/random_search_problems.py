@@ -1,3 +1,8 @@
+"""
+Opal Peltzman
+208521385
+"""
+
 from ways.graph import load_map_from_csv
 import pandas as pd
 import numpy as np

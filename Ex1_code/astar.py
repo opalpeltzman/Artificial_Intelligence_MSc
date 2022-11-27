@@ -75,8 +75,7 @@ def astar(start, target, roads=None):
                 h_time = closed_dict[start].total_cost
             # seconds
             end_time = time.time()
-            print(f'{path} - {end_time - start_time}')
-            # print(path)
+            print(f'{path}')
             return path, g_time, h_time, end_time - start_time
 
         closed_dict.update({selected_node_object.index: selected_node_object})

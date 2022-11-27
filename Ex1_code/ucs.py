@@ -1,3 +1,8 @@
+"""
+Opal Peltzman
+208521385
+"""
+
 from ways import load_map_from_csv
 from ways.graph import Link
 from ways.info import SPEED_RANGES
@@ -23,7 +28,6 @@ def path_cost(s_node: Node, a_node: Link) -> int:
     return s_node.cost + cost
 
 
-# running time- 240 seconds on average
 def ucs(start, target, roads=None):
     """
     opened_dict - holds all nodes that were found but not expanded yet
@@ -57,11 +61,9 @@ def ucs(start, target, roads=None):
             path.insert(0, start)
             # seconds
             end_time = time.time()
-            print(f'{path} - {end_time - start_time}')
-            # print(path)
+            print(f'{path}')
             return path, total_time, end_time - start_time
 
-        # closed_list.append(selected_node_object.index)
         closed_dict.update({selected_node_object.index: selected_node_object})
         if roads[selected_node_object.index].links is not None:
 

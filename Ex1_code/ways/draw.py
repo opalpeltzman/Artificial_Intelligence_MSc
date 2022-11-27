@@ -1,3 +1,8 @@
+"""
+Opal Peltzman
+208521385
+"""
+
 'accessible using "import ways.draw"'
 
 
@@ -25,6 +30,7 @@ def plot_path(roads, path, color='g'):
         flats.append(ps.lat)
         tolats.append(pt.lat)
     plt.plot(flons, flats, tolons, tolats, color)
+    plt.show()
 
 
 def set_no_axis():
