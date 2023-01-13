@@ -2,7 +2,7 @@
 
 ##MyWay
 
-MyWay is a road search program that works with data file `israel.csv` downloaded from `www.openstreetmap` that represents Israel map road.
+MyWay is a road search program that works with data file `israel.csv` downloaded from `www.openstreetmap` that represents Israel road map.
 
 In this program I implemented *UCS*, *A** and *IDA** search algorithms in order to solve 100 random search problems I generated from the given road map.
 
@@ -19,7 +19,7 @@ algorithms-
 1. ucs
 2. astar
 
-start, destination example-
+**[start, destination]** example-
 - 30 55
 
 all possible **[start, destination]** points foe each algorithm are available at `results`
