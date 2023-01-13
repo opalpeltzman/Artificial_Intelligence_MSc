@@ -1,6 +1,6 @@
-#Heuristic Search
+# Heuristic Search
 
-##MyWay
+## MyWay
 
 MyWay is a road search program that works with data file `israel.csv` downloaded from `www.openstreetmap` that represents Israel road map.
 
